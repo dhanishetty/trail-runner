@@ -1,6 +1,11 @@
 """3D rolling ball on a forest trail (Ursina / Panda3D version, real lighting + shadows).
 The ball rolls forward on its own; steer with Left/Right (A/D), jump with Space.
 Cross the pits, hop over the rocks, reach the gate. R restarts, Esc quits."""
+import sys
+if getattr(sys, "frozen", False) and "--worker" in sys.argv:        # the packaged .exe starts itself again as the camera process
+    import pose_control
+    pose_control._worker()
+    sys.exit()
 import math
 import os
 import random
@@ -77,7 +82,7 @@ class Pit:
         return self.cx + self.rx * e * math.cos(th), self.cz + self.rz * e * math.sin(th)
 
 
-TRACK_FILE = Path(__file__).with_name("track_layout.txt")      # edit this file to arrange the obstacles yourself
+TRACK_FILE = (Path(sys.executable).parent if getattr(sys, "frozen", False) else Path(__file__).parent) / "track_layout.txt"      # edit this file to arrange the obstacles yourself
 DEFAULT_LENGTH = 540.0
 LANES = {"left": 0, "center": 1, "right": 2}
 

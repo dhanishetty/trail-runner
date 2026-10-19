@@ -203,7 +203,7 @@ class PoseCamera:
         self.mapper.reset()
         flags = getattr(subprocess, "CREATE_NO_WINDOW", 0)
         try:
-            self._proc = subprocess.Popen([sys.executable, os.path.abspath(__file__), "--worker"], stdout=subprocess.PIPE,
+            self._proc = subprocess.Popen([sys.executable] + ([] if getattr(sys, "frozen", False) else [os.path.abspath(__file__)]) + ["--worker"], stdout=subprocess.PIPE,
                                           stderr=subprocess.DEVNULL, stdin=subprocess.DEVNULL, creationflags=flags)
         except Exception as e:
             self.error = f"Could not start the camera process ({e})"
