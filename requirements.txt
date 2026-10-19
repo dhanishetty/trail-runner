@@ -1,0 +1,6 @@
+ursina
+numpy<2
+Pillow
+scipy
+opencv-python
+mediapipe==0.10.21

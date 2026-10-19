@@ -1,0 +1,47 @@
+# TRACK LAYOUT - edit this file to arrange the obstacles, then start the game again.
+#
+# One obstacle per line:   <kind> <distance> [options]
+# <distance> is how far from the start (in game units; the first obstacle is best placed after 15 or so).
+# Lines starting with # are notes and are ignored. Delete this file to get a freshly generated layout.
+#
+#   length 540                     how long the whole track is (the finish gate is at this distance)
+#   pit_full   <z> [size=1.7]      a muddy pit across the whole track. Jump it. size = half its length (1.3 - 2.2)
+#   pit_side   <z> side=left|right [size=1.7]   a pit over two lanes (2/3 of the width) on one side, one lane open. Jump it, or steer round it
+#   pit_mid    <z> [size=1.8]      a narrow pit in the middle. Steer round it, or jump
+#   rock       <z> lanes=left|center|right   a boulder in that lane (several with + make a wider wall)
+#   rocks_gap  <z> gap=left|center|right   a wall of boulders with one open lane
+#   slalom     <z> side=left|right  three boulders in a zig-zag over about 14 units
+#
+# Rules used by the ready-made layout: boulders cover two lanes (2/3 of the width), side pits too, and the open lane alternates sides
+# left, right, left ... The ball speeds up as it goes, so leave more room between obstacles towards the end (about 13 units at the
+# start, 19 at the finish).
+
+length 540
+
+pit_full     24.0  size=1.5
+pit_side     40.7  side=left size=1.7
+rock         58.0  lanes=center+right
+pit_side     74.1  side=left size=1.5
+pit_full     91.3  size=1.4
+rock        108.5  lanes=center+right
+pit_side    125.1  side=left size=1.6
+rock        143.0  lanes=center+right
+pit_full    159.9  size=1.5
+pit_side    177.9  side=left size=1.5
+pit_full    196.1  size=1.4
+rock        214.4  lanes=center+right
+pit_full    231.9  size=1.5
+rock        250.7  lanes=left+center
+pit_side    268.6  side=right size=1.5
+rock        287.7  lanes=left+center
+pit_full    306.0  size=1.5
+pit_side    325.5  side=right size=1.6
+pit_full    345.4  size=1.5
+pit_side    365.2  side=left size=1.6
+rock        385.5  lanes=center+right
+pit_full    404.7  size=1.5
+pit_side    425.2  side=left size=1.4
+rock        445.6  lanes=center+right
+pit_side    465.4  side=left size=1.5
+rock        486.5  lanes=center+right
+pit_full    506.7  size=1.6
