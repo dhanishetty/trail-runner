@@ -1,0 +1,41 @@
+TRAIL RUNNER - INSTALLATION INSTRUCTIONS
+=========================================
+
+Trail-Runner.exe is built and runs. It is a folder app, not a single-file installer.
+
+WHERE IT IS
+-----------
+- The game folder is C:\trb\dist\Trail-Runner\ (about 500 MB). Double-click Trail-Runner.exe in it.
+- C:\trb\Trail-Runner-win64.zip is a 221 MB zip of that folder. To share the game, send the zip;
+  whoever gets it unzips it and runs the exe. They do not need Python installed.
+- track_layout.txt sits next to the exe, so you can still edit the obstacles.
+
+HOW TO INSTALL ON ANOTHER PC
+----------------------------
+1. Copy Trail-Runner-win64.zip to the PC.
+2. Unzip it (right-click > Extract All). Use a short folder such as C:\Games\ - Windows limits very long paths.
+3. Open the Trail-Runner folder and double-click Trail-Runner.exe.
+4. Controls: Left/Right (A/D) steer, Space jumps, P pauses, R restarts, Q quits (while paused), Esc quits.
+   For camera control, allow camera access and step back so your shoulders and hips are in view.
+
+WHAT WAS TESTED
+---------------
+- The game window opens with no errors.
+- The camera process starts inside the exe and can use the camera.
+- The pose model is bundled, so camera control works offline.
+- NOT tested: looking at the game screen itself, playing a full run, or camera steering inside the exe.
+
+CHANGES MADE FOR THE EXE
+------------------------
+- The exe starts its own camera process, so wheel_ursina.py and pose_control.py were changed to handle that.
+- track_layout.txt is now read from the exe's folder.
+- build_exe.bat was added to rebuild it. It expects the clean build environment in C:\trb.
+- This is committed locally (d7ffee7) but not pushed to GitHub.
+
+NOT DONE
+--------
+- It is not a Setup wizard (Start-menu shortcut, uninstaller). Inno Setup is not installed on this PC.
+  If you install it, the folder can be wrapped into a proper Trail-Runner-Setup.exe.
+- The exe has no custom icon yet.
+- Windows may show a "SmartScreen" warning on other PCs because the exe is not code-signed
+  (click "More info" > "Run anyway").
